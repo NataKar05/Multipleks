@@ -1,29 +1,18 @@
-import SeatingPlan.SeatsList;
+package SeatingPlan;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static SeatingPlan.SeatsList.*;
 
 public class Seats {
 
-    //czemu tu lepiej dac ArrayLista???
-    List<String> superPromoSeats = new ArrayList<>();
-    List<String>superPromoForDisabledSeats = new ArrayList<>();
-    List<String>promoSeats = new ArrayList<>();
-    List<String>standardSeats = new ArrayList<>();
-    List<String>standardVIPSeats=new ArrayList<>();
+    public static List<String> SUPER_PROMO_ROW =
 
     public static void CreatingSeatIDs(List<String> superPromoSeats, List<String>superPromoForDisabledSeats,List<String>promoSeats, List<String>standardSeats,List<String>standardVIPSeats) {
 
         //superPromoSeats
-        for (String row : superPromoRow) {
-            for (int seatNumber : superPromoNumber) {
-                superPromoSeats.add(row + seatNumber);
-            }
-
-        }
+        prepareSeatsIDs(superPromoRow, superPromoNumber, superPromoSeats);
 
         //superPromoForDisabledSeats
         for (String row : superPromoForDisabledRow) {
@@ -56,6 +45,15 @@ public class Seats {
 
         }
 
+    }
+
+    private static void prepareSeatsIDs(List<String> superPromoRow, List<Integer> superPromoNumber, List<String> superPromoSeats) {
+        for (String row : superPromoRow) {
+            for (int seatNumber : superPromoNumber) {
+                superPromoSeats.add(row + seatNumber);
+            }
+
+        }
     }
 
 }
