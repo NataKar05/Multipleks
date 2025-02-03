@@ -1,3 +1,5 @@
+import SeatingPlan.Seats;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.List;
@@ -6,33 +8,30 @@ public class Screening {
 
     private final String movieName;
     private final String time;
-    private final String type;
-    private final Set<String> reservedSeats;
+    private final ScreeningType type;
+    private final LocalDate date;
+    private final Set<String> reservedSeats  = new HashSet<>();
 
     //Typy siedzeń
-    private final List<String> superPromoSeats;
-    private final List<String> superPromoForDisabledSeats;
-    private final List<String> promoSeats;
-    private final List<String> standardSeats;
-    private final List<String> standardVIPSeats;
+    private final List<String> superPromoSeats = Seats.SUPER_PROMO;
+    private final List<String> superPromoForDisabledSeats = Seats.SUPER_PROMO_FOR_DISABLED;
+    private final List<String> promoSeats = Seats.PROMO;
+    private final List<String> standardSeats = Seats.STANDARD;
+    private final List<String> standardVIPSeats = Seats.STANDARD_VIP;
 
-
-    public Screening(String movieName, String time, Set<String> reservedSeats, String type, List<String> superPromoSeats, List<String> superPromoForDisabledSeats, List<String> promoSeats, List<String> standardSeats, List<String> standardVIPSeats) {
+    public Screening(String movieName, LocalDate date,String time, ScreeningType type) {
         this.movieName = movieName;
         this.time = time;
         this.type = type;
-        this.reservedSeats = new HashSet<>();
-
-        //Typy siedzeń
-        this.superPromoSeats = superPromoSeats;
-        this.superPromoForDisabledSeats = superPromoForDisabledSeats;
-        this.promoSeats = promoSeats;
-        this.standardSeats = standardSeats;
-        this.standardVIPSeats = standardVIPSeats;
+        this.date = date;
     }
 
     public String getMovieName(){
         return movieName;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     public String getTime(){
@@ -40,7 +39,7 @@ public class Screening {
     }
 
 
-    public String getType(){
+    public ScreeningType getType(){
         return type;
     }
 

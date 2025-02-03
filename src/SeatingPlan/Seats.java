@@ -7,53 +7,20 @@ import static SeatingPlan.SeatsList.*;
 
 public class Seats {
 
-    public static List<String> SUPER_PROMO_ROW =
+    public static List<String> SUPER_PROMO = prepareSeatsIDs(superPromoRow, superPromoNumber);
+    public static List<String> SUPER_PROMO_FOR_DISABLED = prepareSeatsIDs(superPromoForDisabledRow, superPromoForDisabledNumber);
+    public static List<String> PROMO = prepareSeatsIDs(promoRow, promoNumber);
+    public static List<String> STANDARD = prepareSeatsIDs(standardRow, standardNumber);
+    public static List<String> STANDARD_VIP = prepareSeatsIDs(standardVIPRow, standardVIPNumber);
 
-    public static void CreatingSeatIDs(List<String> superPromoSeats, List<String>superPromoForDisabledSeats,List<String>promoSeats, List<String>standardSeats,List<String>standardVIPSeats) {
-
-        //superPromoSeats
-        prepareSeatsIDs(superPromoRow, superPromoNumber, superPromoSeats);
-
-        //superPromoForDisabledSeats
-        for (String row : superPromoForDisabledRow) {
-            for (int seatNumber : superPromoForDisabledNumber) {
-                superPromoForDisabledSeats.add(row + seatNumber);
+    private static List<String> prepareSeatsIDs(List<String> rows, List<Integer> numbers) {
+        List<String> seatsIds = new ArrayList<>();
+        for (String row : rows) {
+            for (int seatNumber : numbers) {
+                seatsIds.add(row + seatNumber);
             }
-
         }
-
-        //promoSeats
-        for (String row : promoRow) {
-            for (int seatNumber : promoNumber) {
-                promoSeats.add(row + seatNumber);
-            }
-
-        }
-
-        //standardSeats
-        for (String row : standardRow) {
-            for (int seatNumber : standardNumber) {
-                standardSeats.add(row + seatNumber);
-            }
-
-        }
-        //standardVIPSeats
-        for (String row : standardVIPRow) {
-            for (int seatNumber : standardVIPNumber) {
-                standardVIPSeats.add(row + seatNumber);
-            }
-
-        }
-
-    }
-
-    private static void prepareSeatsIDs(List<String> superPromoRow, List<Integer> superPromoNumber, List<String> superPromoSeats) {
-        for (String row : superPromoRow) {
-            for (int seatNumber : superPromoNumber) {
-                superPromoSeats.add(row + seatNumber);
-            }
-
-        }
+        return seatsIds;
     }
 
 }

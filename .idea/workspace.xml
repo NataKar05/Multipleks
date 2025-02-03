@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reportoire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Screening.java" afterDir="false" />
+    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="Zmiany w Multipleks">
+      <change afterPath="$PROJECT_DIR$/src/ScreeningType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cinema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repertoire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Seats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeatingPlan/Seats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Screening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Screening.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeatingPlan/Seats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeatingPlan/Seats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -86,6 +84,15 @@
       <option name="presentableId" value="Default" />
       <updated>1737980613055</updated>
     </task>
+    <task id="LOCAL-00001" summary="Zmiany w Multipleks">
+      <option name="closed" value="true" />
+      <created>1738521098755</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738521098755</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,5 +105,25 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init commit" />
+    <MESSAGE value="Zmiany w Multipleks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zmiany w Multipleks" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/SeatingPlan/Seats.java</url>
+          <line>15</line>
+          <properties class="SeatingPlan.Seats" method="prepareSeatsIDs">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

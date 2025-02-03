@@ -1,9 +1,6 @@
-import SeatingPlan.Seats;
-
-import java.util.HashSet;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Cinema {
 
@@ -12,7 +9,7 @@ public class Cinema {
     private final List<Screening> screenings;
 
     public Cinema(String name, String address) {
-        this(name, address, List.of());
+        this(name, address, new ArrayList<>());
     }
 
     //Tworzenie konstruktora, który jest specjalną metodą
@@ -43,27 +40,25 @@ public class Cinema {
         return screenings;
     }
 
-    public void initializeScreeningWithSeats (String movieName, String time, String type){
-
-        //Poniżej listy siedzeń
-        List<String> superPromoSeats = new ArrayList<>();
-        List<String> superPromoForDisabledSeats = new ArrayList<>();
-        List<String> promoSeats = new ArrayList<>();
-        List<String> standardSeats = new ArrayList<>();
-        List<String> standardVIPSeats = new ArrayList<>();
-
-        Seats.CreatingSeatIDs(superPromoSeats, superPromoForDisabledSeats, promoSeats, standardSeats, standardVIPSeats);
-
-        Set<String> reservedSeats=new HashSet<>();
-
-        Screening screening = new Screening(movieName, time, reservedSeats, type, superPromoSeats, superPromoForDisabledSeats, promoSeats, standardSeats, standardVIPSeats);
-        addScreening(screening);
-    }
+//    public void initializeScreeningWithSeats (String movieName, String time, ScreeningType type){
+//        Screening screening = new Screening(movieName, time, type);
+//        addScreening(screening);
+//    }
 
     public void printProgramme() {
         System.out.println("Repertuar kina: " + name);
         for (Screening screening : screenings) {
             System.out.println(screening);
+        }
+    }
+
+    public void printProgrammeForNextWeek() {
+        System.out.println("Repertuar kina na przyszły tydzień: " + name);
+        LocalDate nextWeekLastDay = LocalDate.now().plusDays(8);
+        for (Screening screening : screenings) {
+            if (screening.getDate().isBefore(nextWeekLastDay)) {
+                System.out.println(screening);
+            }
         }
     }
 
@@ -75,5 +70,4 @@ public class Cinema {
         }
         return null;
     }
-
 }
