@@ -1,9 +1,11 @@
 import SeatingPlan.Seat;
 import SeatingPlan.Seats;
+
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 public class Screening {
 
@@ -11,17 +13,17 @@ public class Screening {
     private final String time;
     private final ScreeningType type;
     private final LocalDate date;
-    private final Set<String> reservedSeats  = new HashSet<>();
+    private final Set<String> reservedSeats = new HashSet<>();
     private final List<Seat> seats = Seats.generateSeats();
 
-    public Screening(String movieName, LocalDate date,String time, ScreeningType type) {
+    public Screening(String movieName, LocalDate date, String time, ScreeningType type) {
         this.movieName = movieName;
         this.time = time;
         this.type = type;
         this.date = date;
     }
 
-    public String getMovieName(){
+    public String getMovieName() {
         return movieName;
     }
 
@@ -29,12 +31,12 @@ public class Screening {
         return date;
     }
 
-    public String getTime(){
+    public String getTime() {
         return time;
     }
 
 
-    public ScreeningType getType(){
+    public ScreeningType getType() {
         return type;
     }
 
@@ -47,14 +49,29 @@ public class Screening {
         return seats;
     }
 
-    public boolean reserveSeat(String seat){
-        if (reservedSeats.contains(seat)){
-            System.out.println("Miejsce "+seat  +" jest już zajęte.");
-            return false;
+    public void reserveSeat(String seatName) {
+        Optional<Seat> possibleSeat = findSeat(seatName);
+        if (possibleSeat.isEmpty()) {
+            System.out.println("Miejsce " + seatName + " nie istnieje");
+            return;
         }
-        reservedSeats.add(seat);
-        System.out.println("Zarezerwowano miejsce: "+ seat);
-        return true;
+        Seat seat = possibleSeat.get();
+        if (seat.isReserved()) {
+            System.out.println("Miejsce " + seatName + " jest już zajęte.");
+            return;
+        }
+        seat.setReserved(true);
+        System.out.println("Zarezerwowano miejsce: " + seatName);
+
+    }
+
+    private Optional<Seat> findSeat(String name) {
+        for (Seat seat : seats) {
+            if (seat.getName().equals(name)) {
+                return Optional.of(seat);
+            }
+        }
+        return Optional.empty();
     }
 
     @Override

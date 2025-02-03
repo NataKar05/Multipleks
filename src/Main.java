@@ -24,10 +24,10 @@ public class Main {
 
 
 //            // Rezerwacja miejsc na różne seanse
-            screening1.reserveSeat("H34");
+            screening1.reserveSeat("H40");
             screening2.reserveSeat("A12");
-            screening3.reserveSeat("VIP-01");
-            screening3.reserveSeat("VIP-01");
+            screening3.reserveSeat("J10");
+            screening3.reserveSeat("J10");
 
 //            // Tworzenie biletu na seans VIP
 //            Ticket ticket = new Ticket("The Dark Knight", new Date(), java.sql.Time.valueOf("20:00:00"), "VIP-01", 50);

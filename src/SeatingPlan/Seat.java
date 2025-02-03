@@ -4,7 +4,7 @@ public class Seat {
 
     private final String name;
     private final SeatType type;
-    private final boolean isReserved;
+    private boolean isReserved;
 
     public Seat(String name, SeatType type, boolean isReserved) {
         this.name = name;
@@ -22,5 +22,9 @@ public class Seat {
 
     public boolean isReserved() {
         return isReserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        isReserved = reserved;
     }
 }
