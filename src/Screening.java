@@ -1,3 +1,4 @@
+import SeatingPlan.Seat;
 import SeatingPlan.Seats;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -11,13 +12,7 @@ public class Screening {
     private final ScreeningType type;
     private final LocalDate date;
     private final Set<String> reservedSeats  = new HashSet<>();
-
-    //Typy siedzeń
-    private final List<String> superPromoSeats = Seats.SUPER_PROMO;
-    private final List<String> superPromoForDisabledSeats = Seats.SUPER_PROMO_FOR_DISABLED;
-    private final List<String> promoSeats = Seats.PROMO;
-    private final List<String> standardSeats = Seats.STANDARD;
-    private final List<String> standardVIPSeats = Seats.STANDARD_VIP;
+    private final List<Seat> seats = Seats.generateSeats();
 
     public Screening(String movieName, LocalDate date,String time, ScreeningType type) {
         this.movieName = movieName;
@@ -43,6 +38,15 @@ public class Screening {
         return type;
     }
 
+    // TODO: simplify
+    public Set<String> getReservedSeats() {
+        return reservedSeats;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
     public boolean reserveSeat(String seat){
         if (reservedSeats.contains(seat)){
             System.out.println("Miejsce "+seat  +" jest już zajęte.");
@@ -53,25 +57,6 @@ public class Screening {
         return true;
     }
 
-    public List<String>getSuperPromoSeats(){
-        return superPromoSeats;
-    }
-
-    public List<String> getSuperPromoForDisabledSeats() {
-        return superPromoForDisabledSeats;
-    }
-
-    public List<String> getPromoSeats() {
-        return promoSeats;
-    }
-
-    public List<String> getStandardSeats() {
-        return standardSeats;
-    }
-
-    public List<String> getStandardVIPSeats() {
-        return standardVIPSeats;
-    }
     @Override
     public String toString() {
         return "Film: " + movieName + ", godzina: " + time + ", typ: " + type + ", zarezerwowane miejsca: " + reservedSeats;
