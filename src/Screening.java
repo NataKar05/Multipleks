@@ -65,7 +65,7 @@ public class Screening {
 
     }
 
-    private Optional<Seat> findSeat(String name) {
+    public Optional<Seat> findSeat(String name) {
         for (Seat seat : seats) {
             if (seat.getName().equals(name)) {
                 return Optional.of(seat);

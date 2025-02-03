@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="Improve Seats in Screening, show Screenings for next week">
-      <change afterPath="$PROJECT_DIR$/src/SeatingPlan/Seat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SeatingPlan/SeatType.java" afterDir="false" />
+    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="Improve seat reserving logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cinema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Screening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Screening.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +99,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738588180609</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Use one list of Seats in Screening">
+      <option name="closed" value="true" />
+      <created>1738589898690</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738589898690</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Improve seat reserving logic">
+      <option name="closed" value="true" />
+      <created>1738590908921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738590908921</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +133,8 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="Zmiany w Multipleks" />
     <MESSAGE value="Improve Seats in Screening, show Screenings for next week" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve Seats in Screening, show Screenings for next week" />
+    <MESSAGE value="Use one list of Seats in Screening" />
+    <MESSAGE value="Improve seat reserving logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve seat reserving logic" />
   </component>
 </project>

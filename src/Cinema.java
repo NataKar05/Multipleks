@@ -1,6 +1,10 @@
+import SeatingPlan.Seat;
+import SeatingPlan.SeatType;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Cinema {
 
@@ -23,11 +27,11 @@ public class Cinema {
 
 
     //Metoda do pobierania nazwy kina
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getAddress(){
+    public String getAddress() {
         return address;
     }
 
@@ -69,5 +73,28 @@ public class Cinema {
             }
         }
         return null;
+    }
+
+    public void buyTicket(Screening screening, String email, String seatName) {
+        Optional<Seat> possibleSeat = screening.findSeat(seatName);
+        if (possibleSeat.isEmpty()) {
+            System.out.println("Nie znaleziono miejsca: " + seatName);
+            return;
+        }
+        Seat seat = possibleSeat.get();
+        int price = switch (seat.getType()) {
+            case SeatType.SUPER_PROMO -> 15;
+            case SeatType.SUPER_PROMO_FOR_DISABLED -> 10;
+            case SeatType.PROMO -> 20;
+            case SeatType.STANDARD -> 25;
+            case SeatType.STANDARD_VIP -> 30;
+        };
+        double priceMultiply = switch (screening.getType()) {
+            case STANDARD -> 1;
+            case THREE_DIMENSIONAL -> 1.5;
+            case VIP -> 2;
+        };
+        Ticket ticket = new Ticket(screening, email, seat, price * priceMultiply);
+        System.out.println("Zakupiono bilet: " + ticket);
     }
 }

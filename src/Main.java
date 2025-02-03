@@ -29,9 +29,8 @@ public class Main {
             screening3.reserveSeat("J10");
             screening3.reserveSeat("J10");
 
-//            // Tworzenie biletu na seans VIP
-//            Ticket ticket = new Ticket("The Dark Knight", new Date(), java.sql.Time.valueOf("20:00:00"), "VIP-01", 50);
-//            System.out.println(ticket);
+//            // Kupno biletu na seans VIP
+            cinema1.buyTicket(screening1, "zzzdzisilaw@gmail.com", "A10");
 //
 //            Ticket vipTicket = new Ticket("The Dark Knight", new Date(), java.sql.Time.valueOf("20:00:00"), "VIP-01", 50, "VIP");
 //            System.out.println(vipTicket);
