@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="Improve seat reserving logic">
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+    <list default="true" id="6af83b55-a8bf-41ca-bd0e-67b7124c32a3" name="Changes" comment="Add user and buy ticket modification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cinema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738590908921</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add user and buy ticket modification">
+      <option name="closed" value="true" />
+      <created>1738793972179</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738793972179</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +140,7 @@
     <MESSAGE value="Improve Seats in Screening, show Screenings for next week" />
     <MESSAGE value="Use one list of Seats in Screening" />
     <MESSAGE value="Improve seat reserving logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve seat reserving logic" />
+    <MESSAGE value="Add user and buy ticket modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user and buy ticket modification" />
   </component>
 </project>

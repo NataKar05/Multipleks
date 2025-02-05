@@ -23,6 +23,8 @@ public class Main {
 
             cinema1.printProgrammeForNextWeek();
 
+            System.out.println();
+
 
 //            // Rezerwacja miejsc na różne seanse
             screening1.reserveSeat("H40");
