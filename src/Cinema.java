@@ -11,6 +11,7 @@ public class Cinema {
     private final String name;
     private final String address;
     private final List<Screening> screenings;
+    private final List<Ticket> tickets; //Przechowywanie zakupionych biletów
 
     public Cinema(String name, String address) {
         this(name, address, new ArrayList<>());
@@ -23,6 +24,7 @@ public class Cinema {
         this.name = name;
         this.address = address;
         this.screenings = screenings;
+        this.tickets=new ArrayList<>();
     }
 
 
@@ -48,6 +50,8 @@ public class Cinema {
 //        Screening screening = new Screening(movieName, time, type);
 //        addScreening(screening);
 //    }
+
+
 
     public void printProgramme() {
         System.out.println("Repertuar kina: " + name);
@@ -75,26 +79,47 @@ public class Cinema {
         return null;
     }
 
-    public void buyTicket(Screening screening, String email, String seatName) {
+
+    public List<Ticket>getTicketsForUser(String email){
+        List<Ticket> userTickets = new ArrayList<>();
+        for (Ticket ticket : tickets) {
+            if (ticket.getEmail().equalsIgnoreCase(email)) {
+                userTickets.add(ticket);
+            }
+        }
+        return userTickets;
+    }
+
+    public void buyTicket(Screening screening, Optional<User> user, String email, String seatName) {
         Optional<Seat> possibleSeat = screening.findSeat(seatName);
         if (possibleSeat.isEmpty()) {
             System.out.println("Nie znaleziono miejsca: " + seatName);
             return;
         }
         Seat seat = possibleSeat.get();
+        if (seat.isReserved()) {
+            System.out.println("Miejsce " + seatName + " jest już zajęte.");
+            return;
+        }
+        seat.setReserved(true);
+        screening.getReservedSeats().add(seatName);
+
+        String finalEmail = user.map(User::getEmail).orElse(email);
         int price = switch (seat.getType()) {
-            case SeatType.SUPER_PROMO -> 15;
-            case SeatType.SUPER_PROMO_FOR_DISABLED -> 10;
-            case SeatType.PROMO -> 20;
-            case SeatType.STANDARD -> 25;
-            case SeatType.STANDARD_VIP -> 30;
+            case SUPER_PROMO -> 15;
+            case SUPER_PROMO_FOR_DISABLED -> 10;
+            case PROMO -> 20;
+            case STANDARD -> 25;
+            case STANDARD_VIP -> 30;
         };
         double priceMultiply = switch (screening.getType()) {
             case STANDARD -> 1;
             case THREE_DIMENSIONAL -> 1.5;
             case VIP -> 2;
         };
-        Ticket ticket = new Ticket(screening, email, seat, price * priceMultiply);
+
+        Ticket ticket = new Ticket(screening, finalEmail, seat, price * priceMultiply);
+        tickets.add(ticket);
         System.out.println("Zakupiono bilet: " + ticket);
     }
 }

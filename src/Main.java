@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Main {
         public static void main(String[] args) {
@@ -29,12 +30,17 @@ public class Main {
             screening3.reserveSeat("J10");
             screening3.reserveSeat("J10");
 
-//            // Kupno biletu na seans VIP
-            cinema1.buyTicket(screening1, "zzzdzisilaw@gmail.com", "A10");
-//
-//            Ticket vipTicket = new Ticket("The Dark Knight", new Date(), java.sql.Time.valueOf("20:00:00"), "VIP-01", 50, "VIP");
-//            System.out.println(vipTicket);
+            // Kupno biletu na seans, gdy użytkownik nie jest zalogowany
+            cinema1.buyTicket(screening1, Optional.empty(), "zzzdzisilaw@gmail.com", "A10");
+
+            // Kupno biletu na seans, gdy użytkownik ma konto
+            User user = new User("zzzdzisilaw@gmail.com", "Zdzisław");
+            cinema1.buyTicket(screening1, Optional.of(user), user.getEmail(), "A11");
+
+            // Pobieranie biletów użytkownika i ich wyświetlenie
+            System.out.println("\nBilety użytkownika:");
+            for (Ticket ticket : cinema1.getTicketsForUser(user.getEmail())) {
+                System.out.println(ticket);
+            }
         }
-
-
 }

@@ -24,10 +24,18 @@ public class Ticket {
         this.type = screening.getType();
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         // TODO: add email
         return "Bilet na seans: " + movieName + ", data: " + date + ", godzina: " + time + ", miejsce: " + seat.getName() +
                 ", cena: " + price + " zł, typ seansu: " + type+ ", typ siedzenia: " + seat.getType();
     }
+
+
+
+
 }
